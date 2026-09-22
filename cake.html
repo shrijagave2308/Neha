@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake</title>
+  <link rel="stylesheet" href="cake.css">
+</head>
+
+<body>
+  <canvas id="bg"></canvas>
+
+  <div class="stage">
+    <h3>
+      <p class="date fade-in" style="animation-delay: 0.5s;">Do you know cakes are very sweet?</p>
+    </h3>
+    <h2 class="fade-in-1" style="animation-delay: 1.5s;">But not sweeter than you ❤️.</h2>
+
+
+    <div class="cake-holder fade-in-cake" id="cakeHolder">
+      <div class="glow-ring"></div>
+      <div class="tier top">
+        <div class="frost"></div>
+        <div class="dots"></div>
+      </div>
+      <div class="tier base">
+        <div class="frost"></div>
+        <div class="dots"></div>
+      </div>
+      <div class="candles">
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+        <div class="candle">
+          <div class="flame"></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="date-tag">23 &bull; 09 &bull; 2026</p>
+
+    <div class="reveal-text" id="revealText"></div>
+
+    <button class="continue" id="nextBtn" style="display:none;">
+      Keep Going, Ailurophile
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="cake.js"></script>
+</body>
+
+</html>

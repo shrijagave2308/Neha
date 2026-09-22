@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album</title>
+    <link rel="stylesheet" href="album.css">
+</head>
+
+<body>
+    <canvas id="bg"></canvas>
+    <div class="scene">
+        <div class="heading">
+            <p class="date">A little something for you...</p><br>
+            <h1>Just a Few Words</h1><br><br>
+        </div>
+        <div class="book-wrap" id="bookWrap">
+            <div class="book-shadow"></div>
+            <div class="book" id="book">
+                <div class="leftpage">
+                    <div class="paper-inner">
+                        <span class="small-label">A LITTLE NOTE</span>
+                        <span class="page-heart">♥</span>
+                        <span class="cover-title">For You</span>
+                    </div>
+                </div>
+                <div class="page" data-i="0">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">01</span>
+                            <p>तुला माहिती...</p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="1">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">02</span>
+                            <p>तू खूप गोड दिसतेस.</p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="2">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">03</span>
+                            <p>तुझे डोळे...</p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="3">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">04</span>
+                            <p>तुझं हसू...</p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="4">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">05</span>
+                            <p>एखाद्याला घायाळ करतील.</p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="5">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">06</span>
+                            <p>खरंच खूप भारी आहेस तू.</p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="6">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">07</span>
+                            <p>म्हणूनच Maybe I Like You. <span class="heart">♥</span></p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="7">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">08</span>
+                            <p>काही चुकलं असेल तर Sorry.</p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="8">
+                    <div class="face front">
+                        <div class="paper-inner"><span class="page-label">09</span>
+                            <p>Once Again, Happy Birthday! <span class="emoji">🎂</span></p>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+                <div class="page" data-i="9">
+                    <div class="face front last-page">
+                        <div class="paper-inner"><span class="page-label">10</span>
+                            <p>Have a Nice Day! <span class="emoji">✨</span></p><span class="bottom-heart">♥</span>
+                        </div>
+                    </div>
+                    <div class="face back">
+                        <div class="paper-inner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controls"><br><br><br>
+            <p class="book-hint" id="hint">Tap, click or swipe to turn the page</p><br>
+            <div class="turns">
+                <button class="turn prev" id="prevBtn" type="button"><span
+                        class="arrow">←</span><span>Back</span></button>
+                <button class="turn next" id="nextBtn" type="button"><span>Next</span><span
+                        class="arrow">→</span></button>
+            </div>
+        </div>
+        <div class="trail" id="trail" aria-label="Page progress"></div>
+    </div>
+    <script src="album_fixed.js"></script>
+</body>
+
+</html>

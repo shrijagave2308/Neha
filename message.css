@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap');
+
+:root {
+  --bg-a: #ffb4c9;
+  --bg-b: #efc1cf;
+  --bg-c: #f4c4d4;
+  --gold: #d9a54a;
+  --gold-soft: #6a004a;
+  --rose: #e75480;
+  --rose-deep: #c23a63;
+  --text: #4a1030;
+  --muted: #9c5a72;
+  --line: rgba(74, 16, 48, 0.14);
+  --ease: cubic-bezier(.22, .68, .28, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: var(--text);
+}
+
+body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, var(--bg-c) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 80% 100%, #ffe0ec 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 55%, var(--bg-a) 100%);
+}
+
+canvas#bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.scene {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 780px;
+  padding: 8vh 6vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 56ch;
+  margin: 0;
+  font-weight: 300;
+}
+
+.rose {
+  color: var(--rose-deep);
+}
+
+.date {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--rose);
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+}
+
+.continue {
+  margin-top: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color .35s var(--ease), background .35s var(--ease), transform .35s var(--ease);
+}
+
+.continue:hover {
+  border-color: var(--rose);
+  background: rgba(231, 84, 128, 0.12);
+  transform: translateY(-2px);
+}
+
+.continue svg {
+  width: 16px;
+  height: 16px;
+  transition: transform .35s var(--ease);
+}
+
+.continue:hover svg {
+  transform: translateX(4px);
+}
+
+.fade-in {
+  animation: fadeIn 1.6s var(--ease) both;
+}
+
+.fade-in-1 {
+  animation: fadeIn 1.6s var(--ease) .35s both;
+}
+
+.fade-in-2 {
+  animation: fadeIn 1.6s var(--ease) .9s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.leaving .scene {
+  animation: fadeOut .7s var(--ease) both;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.99);
+    filter: blur(2px);
+  }
+}
+
+.trail {
+  position: fixed;
+  bottom: 22px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 5;
+}
+
+.trail span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.trail span.done {
+  background: var(--rose);
+}
+
+.trail span.now {
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+}
+
+::selection {
+  background: var(--rose);
+  color: #fff;
+}
+
+.letter {
+  text-align: left;
+  max-width: 520px;
+  margin: 0 auto;
+  border-left: 1px solid var(--line);
+  padding-left: 1.6rem;
+}
+
+.letter p {
+  text-align: left;
+  margin-bottom: 1.1rem;
+  max-width: 100%;
+}
+
+.letter p:last-child {
+  margin-bottom: 0;
+}
+
+.sign-off {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-soft);
+  font-size: 1.2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fade-in,
+  .fade-in-1,
+  .fade-in-2 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  body.leaving .scene {
+    animation: none;
+  }
+}

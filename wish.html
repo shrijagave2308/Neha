@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make a Wish</title>
+  <link rel="stylesheet" href="wish.css">
+</head>
+
+<body>
+
+  <canvas id="bg"></canvas>
+
+  <div class="stage">
+
+    <div class="poem" id="poem">
+      <p class="line line1">Close your eyes, take a breath,</p>
+      <p class="line line2">Make a wish from your heart.</p>
+      <p class="line line3">Maybe today, the universe is listening,</p>
+      <p class="line line4">And something beautiful is about to begin.</p>
+    </div>
+
+    <h1 class="big-wish" id="bigWish">Make a Wish</h1>
+
+    <div class="wish-box" id="wishBox">
+      <textarea id="wishInput" rows="3" placeholder="Whisper it here&hellip;"></textarea>
+    </div>
+
+    <button class="continue" id="nextBtn">
+      A Little Something More
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </svg>
+      <span class="tooltip" id="continueTooltip">Neha, Please make a wish 🥹</span>
+    </button>
+
+  </div>
+
+  <script src="wish.js"></script>
+
+</body>
+
+</html>
