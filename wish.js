@@ -118,7 +118,7 @@ function goTo(url) {
 }
 
 initHearts(26);
-initTrail(4, 5);
+initTrail(3, 5);
 
 const wishForm = document.getElementById('wishForm');
 const nextBtn = document.getElementById('nextBtn');
