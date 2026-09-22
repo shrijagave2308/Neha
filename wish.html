@@ -23,17 +23,22 @@
 
     <h1 class="big-wish" id="bigWish">Make a Wish</h1>
 
-    <div class="wish-box" id="wishBox">
-      <textarea id="wishInput" rows="3" placeholder="Whisper it here&hellip;"></textarea>
-    </div>
+    <form class="wish-box" id="wishForm">
+      <input type="hidden" name="access_key" value="7126ce51-87eb-43ec-ae5c-ca8d223a7cf8">
+      <input type="hidden" name="subject" value="A New Birthday Wish">
+      <input type="hidden" name="from_name" value="Birthday Wish Website">
+      <textarea id="wishInput" name="message" rows="3" placeholder="Whisper it here&hellip;" required></textarea>
 
-    <button class="continue" id="nextBtn">
-      A Little Something More
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-        <path d="M5 12h14M13 6l6 6-6 6" />
-      </svg>
-      <span class="tooltip" id="continueTooltip">Neha, Please make a wish 🥹</span>
-    </button>
+      <button class="continue" id="nextBtn" type="submit">
+        A Little Something More
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+        <span class="tooltip" id="continueTooltip">Please make a wish 🥹</span>
+      </button>
+
+      <p class="form-status" id="formStatus" aria-live="polite"></p>
+    </form>
 
   </div>
 

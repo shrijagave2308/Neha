@@ -26,9 +26,7 @@ function initHearts(density = 26) {
     swaySpeed: Math.random() * 0.02 + 0.008,
     swayAmp: Math.random() * 0.6 + 0.2,
     alpha: Math.random() * 0.35 + 0.2,
-    color: Math.random() > 0.5
-      ? '231,84,128'
-      : '255,165,74'
+    color: Math.random() > 0.5 ? '231,84,128' : '255,165,74'
   }));
 
   function drawHeart(x, y, size, alpha, color) {
@@ -74,13 +72,7 @@ function initHearts(density = 26) {
         p.x = -20;
       }
 
-      drawHeart(
-        p.x,
-        p.y,
-        p.size,
-        p.alpha,
-        p.color
-      );
+      drawHeart(p.x, p.y, p.size, p.alpha, p.color);
     }
 
     requestAnimationFrame(tick);
@@ -126,11 +118,12 @@ function goTo(url) {
 }
 
 initHearts(26);
-
 initTrail(4, 5);
 
+const wishForm = document.getElementById('wishForm');
 const nextBtn = document.getElementById('nextBtn');
 const wishInput = document.getElementById('wishInput');
+const formStatus = document.getElementById('formStatus');
 
 nextBtn.disabled = true;
 
@@ -138,8 +131,45 @@ wishInput.addEventListener('input', () => {
   nextBtn.disabled = wishInput.value.trim().length === 0;
 });
 
-nextBtn.addEventListener('click', () => {
-  if (nextBtn.disabled) return;
+wishForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-  goTo('message.html');
+  if (!wishInput.value.trim()) return;
+
+  nextBtn.disabled = true;
+  nextBtn.classList.add('sending');
+  formStatus.textContent = 'Sending your wish...';
+  formStatus.className = 'form-status visible';
+
+  try {
+    const formData = new FormData(wishForm);
+    const data = Object.fromEntries(formData.entries());
+
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      formStatus.textContent = 'Your wish has been sent ♥';
+      formStatus.className = 'form-status visible success';
+
+      setTimeout(() => {
+        goTo('message.html');
+      }, 900);
+    } else {
+      throw new Error(result.message || 'Submission failed');
+    }
+  } catch (error) {
+    formStatus.textContent = 'Something went wrong. Please try again.';
+    formStatus.className = 'form-status visible error';
+    nextBtn.disabled = false;
+    nextBtn.classList.remove('sending');
+  }
 });
