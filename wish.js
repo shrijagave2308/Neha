@@ -141,5 +141,5 @@ wishInput.addEventListener('input', () => {
 nextBtn.addEventListener('click', () => {
   if (nextBtn.disabled) return;
 
-  goTo('Message.html');
+  goTo('message.html');
 });
